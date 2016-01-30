@@ -18,6 +18,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AddEntry"
+            android:label="@string/title_activity_add_entry"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.juliewang.assignment_1.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ViewEntry"
+            android:label="@string/title_activity_view_entry"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.juliewang.assignment_1.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

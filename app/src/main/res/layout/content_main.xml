@@ -7,23 +7,34 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_my">
-    <Button
-        android:layout_width="127.5dp"
-        android:layout_height="wrap_content"
-        android:text="View Entries"
-        android:layout_gravity="bottom" />
+
 
     <Button
-        android:layout_width="127.5dp"
+        android:id="@+id/viewEntryButton"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Add Entries"
-        android:layout_gravity="bottom" />
-    <Button
-        android:layout_width="127.5dp"
-        android:layout_height="wrap_content"
-        android:text="Edit Entries"
-        android:layout_gravity="bottom" />
+        android:layout_weight="1"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="View Entries" />
 
+    <Button
+        android:id="@+id/editEntryButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="Edit Entries" />
+
+    <Button
+        android:id="@+id/addEntryButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="Add Entries" />
 
 
 </LinearLayout>
