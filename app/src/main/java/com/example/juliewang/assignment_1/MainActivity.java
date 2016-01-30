@@ -53,7 +53,13 @@ public class MainActivity extends AppCompatActivity {
         viewEntryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ViewEntry.class));
+                startActivity(new Intent(MainActivity.this, SavedEntries.class));
+            }
+        });
+        editEntryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SavedEntries.class));
             }
         });
     }

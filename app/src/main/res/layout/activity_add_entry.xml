@@ -1,4 +1,4 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="fill_parent"
@@ -19,12 +19,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Date:"
+            android:text="Enter today's date (yyyy-mm-dd)"
 
             android:layout_column="0" />
         <EditText
             android:id="@+id/add_date"
-            android:text="Enter today's date (yyyy-mm-dd)"
+            android:text=""
             android:layout_weight="100"/>
     </TableRow>
 
@@ -35,13 +35,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Station"
+            android:text="Enter station name: "
 
 
             android:layout_column="0" />
 
         <EditText
-            android:text="Enter station name: "
+            android:text=""
             android:layout_weight="50"
             android:layout_column="0"
             android:id="@+id/add_station"/>
@@ -55,13 +55,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Odometer:"
+            android:text="Enter odometer reading (km)"
 
             android:layout_column="0" />
 
         <EditText
             android:id="@+id/add_odometer"
-            android:text="Enter odometer reading (km)"
+            android:text=""
             android:layout_weight="50"
             android:layout_column="0" />
     </TableRow>
@@ -74,12 +74,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Fuel:"
-
-            android:layout_column="0" />
-        <EditText
-            android:id="@+id/add_fuel"
             android:text="Enter fuel remaining (L)"
+
+            android:layout_column="0" />
+        <EditText
+            android:id="@+id/add_fuel_amount"
+            android:text=""
             android:layout_weight="50"
             android:layout_column="0" />
     </TableRow>
@@ -92,22 +92,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Fuel Cost:"
+            android:text="Enter fuel unit cost (L) "
 
             android:layout_column="0" />
 
         <EditText
-            android:id="@+id/add_fuel_cost"
-            android:text="Enter fuel unit cost (L) "
+            android:id="@+id/add_fuel_unit_cost"
+            android:text=""
             android:layout_weight="50"
             android:layout_column="1" />
     </TableRow>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/addSave"
         android:gravity= "center"
         android:text="Save"
-        android:onClick="addSaved" />
+        android:onClick="Saved" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addCancel"
+        android:gravity= "center"
+        android:text="Cancel"
+        android:onClick="Canceled" />
+
 
 
 
