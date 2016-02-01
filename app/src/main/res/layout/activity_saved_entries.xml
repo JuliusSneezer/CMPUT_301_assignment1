@@ -8,16 +8,6 @@ android:paddingRight="@dimen/activity_horizontal_margin"
 android:paddingTop="@dimen/activity_vertical_margin"
 tools:context="com.example.juliewang.assignment_1.SavedEntries">
 
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Exit App"
-    android:id="@+id/back_from_view"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true" />
-
-
 
 <RadioGroup
     android:id="@+id/radioArray"
@@ -26,10 +16,10 @@ tools:context="com.example.juliewang.assignment_1.SavedEntries">
     android:orientation="vertical"
     android:layout_alignRight="@+id/selectOK"
     android:layout_alignEnd="@+id/selectOK"
-    android:layout_above="@+id/total_fuel_cost"
+    android:layout_above="@+id/selectOK"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
-    android:layout_below="@+id/AddEntryInChoose">
+    android:layout_below="@+id/total_fuel_text">
 
 </RadioGroup>
 
@@ -38,16 +28,18 @@ tools:context="com.example.juliewang.assignment_1.SavedEntries">
     android:layout_height="wrap_content"
     android:text="Cancel"
     android:id="@+id/Cancel"
-    android:layout_alignTop="@+id/back_from_view"
-    android:layout_centerHorizontal="true" />
+
+    android:layout_alignParentBottom="true"
+    android:layout_alignEnd="@+id/radioArray"
+    android:layout_alignParentStart="true" />
 
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="selectOK"
     android:id="@+id/selectOK"
-    android:layout_alignTop="@+id/Cancel"
-    android:layout_alignParentRight="true"
+    android:layout_above="@+id/Cancel"
+    android:layout_alignParentStart="true"
     android:layout_alignParentEnd="true" />
 
 <TextView
@@ -56,10 +48,9 @@ tools:context="com.example.juliewang.assignment_1.SavedEntries">
     android:textAppearance="?android:attr/textAppearanceLarge"
     android:text="Total Fuel Cost ($): "
     android:id="@+id/total_fuel_text"
-    android:layout_above="@+id/back_from_view"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:layout_marginBottom="20dp" />
+
+    android:layout_alignParentTop="true"
+    android:layout_alignParentStart="true" />
 
 <TextView
     android:layout_width="wrap_content"
@@ -70,13 +61,5 @@ tools:context="com.example.juliewang.assignment_1.SavedEntries">
     android:layout_alignTop="@+id/total_fuel_text"
     android:layout_toRightOf="@+id/total_fuel_text"
     android:layout_toEndOf="@+id/total_fuel_text" />
-
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Add New Entry"
-    android:id="@+id/AddEntryInChoose"
-    android:layout_alignParentTop="true"
-    android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

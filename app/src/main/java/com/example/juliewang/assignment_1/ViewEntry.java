@@ -37,33 +37,28 @@ public class ViewEntry extends AppCompatActivity {
         Button Cancel = (Button) findViewById(R.id.Cancel);
 
         //initialize proper format for all decimal info, odometer and fuel unit cost overlap
-        DecimalFormat odometerFormat = new DecimalFormat("#.#");
-        DecimalFormat fuelAmountFormat = new DecimalFormat("#.###");
+
 
         //load all entries
         loadFromFile();
 
         //set entry being displayed to the entry selected to view
         current = entries.get(SavedEntries.selectedEntry);
-        TextView date = (TextView) findViewById(R.id.date_info);
-        TextView station = (TextView) findViewById(R.id.station_info);
-        TextView odometer = (TextView) findViewById(R.id.odometer_info);
-        TextView fuel_grade = (TextView) findViewById(R.id.fuel_grade_info);
-        TextView fuel_amount = (TextView) findViewById(R.id.fuel_amount_info);
-        TextView fuel_unit_cost = (TextView) findViewById(R.id.fuel_unit_cost_info);
-        TextView fuel_total_cost = (TextView) findViewById(R.id.fuel_cost_info);
+        TextView date = (TextView) findViewById(R.id.view_date);
+        TextView station = (TextView) findViewById(R.id.view_station);
+        TextView odometer = (TextView) findViewById(R.id.view_odometer);
+        TextView fuel_grade = (TextView) findViewById(R.id.view_fuel_grade);
+        TextView fuel_amount = (TextView) findViewById(R.id.view_fuel_amount);
+        TextView fuel_unit_cost = (TextView) findViewById(R.id.view_fuel_unit_cost);
+
         //show proper date
 
         date.setText(current.getDate());
         station.setText(current.getStation());
-        DecimalFormat odometer_correct_format = new DecimalFormat("#.#");
-        odometer.setText(String.valueOf(odometer_correct_format.format(current.getOdometer())));
         fuel_grade.setText(current.getFuel_grade());
-        DecimalFormat fuel_amount_correct_format = new DecimalFormat("#.###");
-        fuel_amount.setText(String.valueOf(fuel_amount_correct_format.format(current.getFuel_amount())));
-        fuel_unit_cost.setText(String.valueOf(String.valueOf(current.getUnit_cost())));
-        DecimalFormat total_cost_correct_format= new DecimalFormat("#.##");
-        fuel_total_cost.setText(String.valueOf(total_cost_correct_format.format(current.getFuel_total_cost())));
+        odometer.setText(String.valueOf(new DecimalFormat("#.#").format(current.getOdometer())));
+        fuel_amount.setText(String.valueOf(new DecimalFormat("#.###").format(current.getFuel_amount())));
+        fuel_unit_cost.setText(String.valueOf(new DecimalFormat("#.#").format(current.getUnit_cost())));
 
 
         Cancel.setOnClickListener(new View.OnClickListener() {

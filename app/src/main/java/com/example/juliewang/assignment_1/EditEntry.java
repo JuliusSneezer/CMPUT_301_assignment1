@@ -35,14 +35,15 @@ super.onCreate(savedInstanceState);
 setContentView(R.layout.activity_edit_entry);
 
 //initialize buttons
-Button cancelEdit = (Button) findViewById(R.id.cancel_edit);
-Button doneEdit = (Button) findViewById(R.id.done_edit);
+Button cancelEdit = (Button) findViewById(R.id.Cancel);
+Button doneEdit = (Button) findViewById(R.id.Done);
 
 //load all the log entries
 loadFromFile();
 
 //set entry to the entry selected to edit
 current = entries.get(SavedEntries.selectedEntry);
+
 
 //show proper date
 final TextView dateInfo = (TextView) findViewById(R.id.edit_date);
