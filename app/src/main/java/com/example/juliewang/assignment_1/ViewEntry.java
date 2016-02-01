@@ -36,13 +36,13 @@ public class ViewEntry extends AppCompatActivity {
         //initialize button
         Button Cancel = (Button) findViewById(R.id.Cancel);
 
-        //initialize proper format for all decimal info, odometer and fuel unit cost overlap
+
 
 
         //load all entries
         loadFromFile();
 
-        //set entry being displayed to the entry selected to view
+
         current = entries.get(SavedEntries.selectedEntry);
         TextView date = (TextView) findViewById(R.id.view_date);
         TextView station = (TextView) findViewById(R.id.view_station);
@@ -50,8 +50,8 @@ public class ViewEntry extends AppCompatActivity {
         TextView fuel_grade = (TextView) findViewById(R.id.view_fuel_grade);
         TextView fuel_amount = (TextView) findViewById(R.id.view_fuel_amount);
         TextView fuel_unit_cost = (TextView) findViewById(R.id.view_fuel_unit_cost);
+        TextView fuel_total_cost = (TextView) findViewById(R.id.view_fuel_total_cost);
 
-        //show proper date
 
         date.setText(current.getDate());
         station.setText(current.getStation());
@@ -59,7 +59,7 @@ public class ViewEntry extends AppCompatActivity {
         odometer.setText(String.valueOf(new DecimalFormat("#.#").format(current.getOdometer())));
         fuel_amount.setText(String.valueOf(new DecimalFormat("#.###").format(current.getFuel_amount())));
         fuel_unit_cost.setText(String.valueOf(new DecimalFormat("#.#").format(current.getUnit_cost())));
-
+        fuel_total_cost.setText(String.valueOf(new DecimalFormat("#.##").format(current.getFuel_total_cost())));
 
         Cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,11 +67,11 @@ public class ViewEntry extends AppCompatActivity {
                 finish();
             }
         });
-
+        SavedEntries.selectedEntry = -1;
     }
 
     private void loadFromFile() {
-        //Most of code from lab 3, edited to work with my application, loads all entrys into entries
+
         try {
             FileInputStream fis = openFileInput(FILENAME);
             BufferedReader in = new BufferedReader(new InputStreamReader(fis));

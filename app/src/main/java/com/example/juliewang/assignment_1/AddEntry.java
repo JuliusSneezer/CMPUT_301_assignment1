@@ -28,20 +28,24 @@ import com.google.gson.reflect.TypeToken;
 public class AddEntry extends AppCompatActivity {
     private ArrayList<Entry> entries = new ArrayList<Entry>();
     private static final String FILENAME = "file.sav";
+    //initalizing all Edittext variables present in activity_saved_entry
     private EditText add_date;
     private EditText add_station;
     private EditText add_fuel_grade;
     private EditText add_odometer;
     private EditText add_fuel_amount;
     private EditText add_fuel_unit_cost;
-    private EditText add_fuel_total_cost;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //create onCreate
         super.onCreate(savedInstanceState);
+        //allows user to interact with interface
         setContentView(R.layout.activity_add_entry);
 
 
-
+        //assigning each Edittext to a variable
         Button addSave = (Button) findViewById(R.id.addSave);
         Button addCancel = (Button) findViewById(R.id.addCancel);
         add_date = (EditText) findViewById(R.id.add_date);
@@ -50,14 +54,15 @@ public class AddEntry extends AppCompatActivity {
         add_odometer = (EditText) findViewById(R.id.add_odometer);
         add_fuel_amount = (EditText) findViewById(R.id.add_fuel_amount);
         add_fuel_unit_cost = (EditText) findViewById(R.id.add_fuel_unit_cost);
-        add_fuel_total_cost =  (EditText) findViewById(R.id.add_fuel_total_cost);
+
+        //when the save button is clicked the following checks will be preformed. These will check that all fields are filled
+        //and that they of the correct type.
         addSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
                     String date = add_date.getText().toString();
                     if (date.isEmpty()) {
-                        //Toast toast = Toast.makeText(context, text, duration); format
                         Toast toast = Toast.makeText(AddEntry.this, "Please enter a date", Toast.LENGTH_SHORT);
                         toast.show();
                     }
@@ -83,12 +88,15 @@ public class AddEntry extends AppCompatActivity {
                         Toast toast = Toast.makeText(AddEntry.this, "Please enter a fuel unit cost", Toast.LENGTH_SHORT);
                         toast.show();
                     }
+
                     String fuel_grade = add_fuel_grade.getText().toString();
                     if (fuel_grade.equals("")) {
-                        Toast toast = Toast.makeText(AddEntry.this, "Please enter the total cost of fuel ", Toast.LENGTH_SHORT);
+                        Toast toast = Toast.makeText(AddEntry.this, "Please enter a fuel grade ", Toast.LENGTH_SHORT);
                         toast.show();
                     } else {
+                        //to calculate total fuel cost
                         Double fuel_total_cost = fuel_amount * (fuel_unit_cost/100);
+                        //pass in a new Entry object into entries and storing it
                         Entry mostRecentEntry = new Entry(date, station, odometer, fuel_amount, fuel_unit_cost, fuel_grade, fuel_total_cost);
                         loadFromFile();
                         entries.add(mostRecentEntry);
@@ -99,6 +107,7 @@ public class AddEntry extends AppCompatActivity {
 
                     }
                 }catch (NumberFormatException e) {
+                    //this is the final check to make sure there are no unfilled fields
                     Toast toast = Toast.makeText(AddEntry.this, "Error: Entry not complete. Please Complete", Toast.LENGTH_SHORT);
                     toast.show();
 
@@ -106,6 +115,7 @@ public class AddEntry extends AppCompatActivity {
             }
 
         });
+        //if the cancel button is clicked the program exits to the main menu
         addCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -17,10 +17,8 @@ public class Entry {
     protected Double odometer;
     protected Double fuel_amount;
     protected Double unit_cost;
-    protected Double total_cost;
     protected Double fuel_total_cost;
-    private ArrayList<Entry> entries = new ArrayList<>();
-    private static final String FILENAME = "file.sav";
+
 
     public Entry(String date, String station, Double odometer, Double fuel_amount, Double unit_cost, String fuel_grade, Double fuel_total_cost) {
         this.date = date;
@@ -64,9 +62,7 @@ public class Entry {
         this.unit_cost = unit_cost;
     }
 
-    public void setTotal_cost(Double total_cost) {
-        this.total_cost = total_cost;
-    }
+
 
     public void setFuel_grade(String fuel_grade) {
         this.fuel_grade = fuel_grade;
@@ -76,9 +72,6 @@ public class Entry {
         return unit_cost;
     }
 
-    public Double getTotal_cost() {
-        return total_cost;
-    }
 
     public String getDate() {
         return date;
@@ -102,6 +95,7 @@ public class Entry {
     }
 
     public Double getFuel_total_cost() {
+        fuel_total_cost = fuel_amount * (unit_cost/100);
         return fuel_total_cost;
     }
 }

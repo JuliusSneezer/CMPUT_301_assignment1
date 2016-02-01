@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         Button editEntryButton = (Button) findViewById(R.id.editEntryButton);
         Button viewEntryButton = (Button) findViewById(R.id.viewEntryButton);
         //startActivity : http://stackoverflow.com/questions/21888385/how-to-call-the-start-activity-from-one-java-class
+        //if a button is clicked a new activity will start corresponding to the users actions
         addEntryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
+        //the saved entries class is a intermediate between main activity and view and edit entry for selecting the entries to be modified
         viewEntryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         loadFromFile();
+
+
 
     }
 }

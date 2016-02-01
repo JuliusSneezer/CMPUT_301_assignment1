@@ -37,7 +37,7 @@ public class SavedEntries extends AppCompatActivity {
     private RadioButton[] radioArray;
     private double total = 0;
     private static final String FILENAME = "file.sav";
-    private Entry current;
+    protected Entry current;
 
     protected void onStart() {
         super.onStart();
@@ -47,7 +47,7 @@ public class SavedEntries extends AppCompatActivity {
         total = 0;
         for (int i = 0; i < entries.size(); i++) {
             current = entries.get(i);
-            total = total;
+            total = total + current.getFuel_total_cost();
         }
 
         DecimalFormat fuelFormat = new DecimalFormat("#.##");
@@ -136,6 +136,7 @@ public class SavedEntries extends AppCompatActivity {
                 finish();
             }
         });
+        SavedEntries.selectedEntry = -1;
 
     }
 

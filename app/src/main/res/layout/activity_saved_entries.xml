@@ -36,7 +36,7 @@ tools:context="com.example.juliewang.assignment_1.SavedEntries">
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="selectOK"
+    android:text="Select"
     android:id="@+id/selectOK"
     android:layout_above="@+id/Cancel"
     android:layout_alignParentStart="true"
