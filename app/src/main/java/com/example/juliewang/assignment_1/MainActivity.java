@@ -1,5 +1,4 @@
 package com.example.juliewang.assignment_1;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +27,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private ArrayList<Entry> entries = new ArrayList<Entry>();
+    public static boolean CheckEdit = false;
 
     private static final String FILENAME = "file.sav";
 
@@ -59,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
         editEntryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MainActivity.CheckEdit = true;
                 startActivity(new Intent(MainActivity.this, SavedEntries.class));
+
             }
         });
     }
@@ -107,5 +109,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         loadFromFile();
+
     }
 }

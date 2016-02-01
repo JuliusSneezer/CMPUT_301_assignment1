@@ -1,5 +1,4 @@
 package com.example.juliewang.assignment_1;
-
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -31,9 +30,11 @@ public class AddEntry extends AppCompatActivity {
     private static final String FILENAME = "file.sav";
     private EditText add_date;
     private EditText add_station;
+    private EditText add_fuel_grade;
     private EditText add_odometer;
     private EditText add_fuel_amount;
     private EditText add_fuel_unit_cost;
+    private EditText add_fuel_total_cost;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +46,11 @@ public class AddEntry extends AppCompatActivity {
         Button addCancel = (Button) findViewById(R.id.addCancel);
         add_date = (EditText) findViewById(R.id.add_date);
         add_station = (EditText) findViewById(R.id.add_station);
+        add_fuel_grade = (EditText) findViewById(R.id.add_fuel_grade);
         add_odometer = (EditText) findViewById(R.id.add_odometer);
         add_fuel_amount = (EditText) findViewById(R.id.add_fuel_amount);
         add_fuel_unit_cost = (EditText) findViewById(R.id.add_fuel_unit_cost);
+        add_fuel_total_cost =  (EditText) findViewById(R.id.add_fuel_total_cost);
         addSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,29 +60,45 @@ public class AddEntry extends AppCompatActivity {
                         //Toast toast = Toast.makeText(context, text, duration); format
                         Toast toast = Toast.makeText(AddEntry.this, "Please enter a date", Toast.LENGTH_SHORT);
                         toast.show();
-                    } else if (add_station.equals("")) {
+                    }
+                    String station = add_station.getText().toString();
+                    if (station.isEmpty()) {
                         Toast toast = Toast.makeText(AddEntry.this, "Please enter a station", Toast.LENGTH_SHORT);
                         toast.show();
-                    } else if (add_odometer.equals("")) {
-                        Toast toast = Toast.makeText(AddEntry.this, "Please enter a station", Toast.LENGTH_SHORT);
-                        toast.show();
-                    } else if (add_fuel_amount.equals("")) {
-                        Toast toast = Toast.makeText(AddEntry.this, "Please enter a station", Toast.LENGTH_SHORT);
-                        toast.show();
-                    } else if (add_fuel_unit_cost.equals("")) {
-                        Toast toast = Toast.makeText(AddEntry.this, "Please enter a station", Toast.LENGTH_SHORT);
-                        toast.show();
-                    } else {
-                       // ViewEntry mostRecentEntry = new ViewEntry(add_date, add_station, add_odometer, add_fuel_amount, add_fuel_unit_cost);
-                       //loadFromFile();
-                       // entries.add(mostRecentEntry);
-
-                       //saveInFile();
-                       finish();
                     }
 
+                    Double odometer = Double.parseDouble(add_odometer.getText().toString());
+                    if (odometer.equals("")) {
+                        Toast toast = Toast.makeText(AddEntry.this, "Please enter an odometer reading", Toast.LENGTH_SHORT);
+                        toast.show();
 
-                } catch (NumberFormatException e) {
+                    }
+                    Double fuel_amount = Double.parseDouble(add_fuel_amount.getText().toString());
+                    if (fuel_amount.equals("")) {
+                        Toast toast = Toast.makeText(AddEntry.this, "Please enter a fuel amount", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                    Double fuel_unit_cost = Double.parseDouble(add_fuel_unit_cost.getText().toString());
+                    if (fuel_unit_cost.equals("")) {
+                        Toast toast = Toast.makeText(AddEntry.this, "Please enter a fuel unit cost", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                    String fuel_grade = add_fuel_grade.getText().toString();
+                    if (fuel_grade.equals("")) {
+                        Toast toast = Toast.makeText(AddEntry.this, "Please enter the total cost of fuel ", Toast.LENGTH_SHORT);
+                        toast.show();
+                    } else {
+                        Double fuel_total_cost = fuel_amount * (fuel_unit_cost/100);
+                        Entry mostRecentEntry = new Entry(date, station, odometer, fuel_amount, fuel_unit_cost, fuel_grade, fuel_total_cost);
+                        loadFromFile();
+                        entries.add(mostRecentEntry);
+
+                        saveInFile();
+                        finish();
+
+
+                    }
+                }catch (NumberFormatException e) {
                     Toast toast = Toast.makeText(AddEntry.this, "Error: Entry not complete. Please Complete", Toast.LENGTH_SHORT);
                     toast.show();
 

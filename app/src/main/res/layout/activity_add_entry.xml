@@ -74,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Enter fuel remaining (L)"
+            android:text="Enter fuel amount (L):"
 
             android:layout_column="0" />
         <EditText
@@ -92,13 +92,49 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Enter fuel unit cost (L) "
+            android:text="Enter fuel unit cost (L): "
 
             android:layout_column="0" />
 
         <EditText
             android:id="@+id/add_fuel_unit_cost"
-            android:text=""
+            android:text= ""
+            android:layout_weight="50"
+            android:layout_column="1" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Enter fuel total cost (L):"
+
+            android:layout_column="0" />
+
+        <EditText
+            android:id="@+id/add_fuel_total_cost"
+            android:text= ""
+            android:layout_weight="50"
+            android:layout_column="1" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Enter fuel grade (L):"
+
+            android:layout_column="0" />
+
+        <EditText
+            android:id="@+id/add_fuel_grade"
+            android:text= ""
             android:layout_weight="50"
             android:layout_column="1" />
     </TableRow>

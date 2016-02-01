@@ -5,32 +5,43 @@
 //fuel unit cost (entered in cents per L, numeric to 1 decimal place)
 package com.example.juliewang.assignment_1;
 
-
+import java.util.ArrayList;
 import java.util.Date;
 /**
  * Created by juliewang on 16-01-23.
  */
-public abstract class Entry {
+public class Entry {
     protected String date;
     protected String station;
+    protected String fuel_grade;
     protected Double odometer;
     protected Double fuel_amount;
     protected Double unit_cost;
+    protected Double total_cost;
+    protected Double fuel_total_cost;
+    private ArrayList<Entry> entries = new ArrayList<>();
+    private static final String FILENAME = "file.sav";
 
-    public Entry(String date, String station, Double odometer, Double fuel_amount, Double unit_cost) {
+    public Entry(String date, String station, Double odometer, Double fuel_amount, Double unit_cost, String fuel_grade, Double fuel_total_cost) {
         this.date = date;
         this.station = station;
         this.odometer = odometer;
         this.fuel_amount = fuel_amount;
         this.unit_cost = unit_cost;
+        this.fuel_grade = fuel_grade;
+        this.fuel_total_cost = fuel_total_cost;
+
 
     }
-    public void setEntry(String date, String station, Double odometer, Double fuel_amount, Double unit_cost){
+    public void setEntry(String date, String station, Double odometer, Double fuel_amount, Double unit_cost, String fuel_grade, Double fuel_total_cost){
         this.date = date;
         this.station = station;
         this.odometer = odometer;
         this.fuel_amount = fuel_amount;
         this.unit_cost = unit_cost;
+        this.fuel_grade = fuel_grade;
+        this.fuel_total_cost = fuel_total_cost;
+
     }
 
     public void setDate(String date) {
@@ -53,9 +64,45 @@ public abstract class Entry {
         this.unit_cost = unit_cost;
     }
 
+    public void setTotal_cost(Double total_cost) {
+        this.total_cost = total_cost;
+    }
+
+    public void setFuel_grade(String fuel_grade) {
+        this.fuel_grade = fuel_grade;
+    }
+
     public Double getUnit_cost() {
         return unit_cost;
     }
 
+    public Double getTotal_cost() {
+        return total_cost;
+    }
+
+    public String getDate() {
+        return date;
+
+    }
+
+    public String getFuel_grade() {
+        return fuel_grade;
+    }
+
+    public String getStation() {
+        return station;
+    }
+
+    public Double getOdometer() {
+        return odometer;
+    }
+
+    public Double getFuel_amount() {
+        return fuel_amount;
+    }
+
+    public Double getFuel_total_cost() {
+        return fuel_total_cost;
+    }
 }
 
